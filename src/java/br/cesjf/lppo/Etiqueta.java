@@ -11,7 +11,9 @@ public class Etiqueta implements Serializable{
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id, idAutor, idTarefa;
+    private Long id;
+    private Long idAutor; 
+    private Long idTarefa;
     private String titulo;
 
     public Etiqueta() {
