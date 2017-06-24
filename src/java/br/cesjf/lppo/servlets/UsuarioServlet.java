@@ -33,7 +33,7 @@ public class UsuarioServlet extends HttpServlet {
         if (request.getServletPath().contains("/criar-usuario.html")) {
             doCriarGet(request,response);
         } else if (request.getServletPath().contains("/listar-usuario.html")) {
-            doListarrGet(request,response);
+            doListarGet(request,response);
         } else if (request.getServletPath().contains("/editar-usuario.html")) {
             doEditarGet(request,response);
         } else if (request.getServletPath().contains("/excluir-usuario.html")) {
@@ -75,7 +75,7 @@ public class UsuarioServlet extends HttpServlet {
     }
        
     
-        private void doListarrGet(HttpServletRequest request, HttpServletResponse response)            
+        private void doListarGet(HttpServletRequest request, HttpServletResponse response)            
             throws ServletException, IOException {
          List<Usuario> usuarios;
         
@@ -96,7 +96,7 @@ public class UsuarioServlet extends HttpServlet {
         request.setAttribute("usuario", usuario);
         request.getRequestDispatcher("WEB-INF/editar-usuario.jsp").forward(request, response);
     } catch (Exception e) {
-        response.sendRedirect("listar-usuario.html");
+        response.sendRedirect("WEB-INF/erro.jsp");
     }
 }
 
@@ -114,7 +114,7 @@ public class UsuarioServlet extends HttpServlet {
         response.sendRedirect("listar-usuario.html");
        
     } catch (Exception e) {
-        response.sendRedirect("listar-usuario.html");
+        response.sendRedirect("WEB-INF/erro.jsp");
     }
  }
      private void doExcluirGet(HttpServletRequest request, HttpServletResponse response)
@@ -125,6 +125,7 @@ public class UsuarioServlet extends HttpServlet {
             Long id = Long.parseLong(request.getParameter("id"));
             dao.destroy(id);
         } catch (Exception ex) {
+            response.sendRedirect("WEB-INF/erro.jsp");
         }
         response.sendRedirect("listar-usuario.html");
     }

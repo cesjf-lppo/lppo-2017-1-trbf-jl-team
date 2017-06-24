@@ -5,5 +5,7 @@
 <ul>
     <li><a href="criar-usuario.html"/> Novo Usuario </a></li>
     <li><a href="listar-usuario.html"/> Lista Usuario</a></li>
+    <li><a href="criar-tarefa.html"/> Criar Tarefas</a></li>
+    <li><a href="listar-tarefa.html"/> Listar Tarefas</a></li>
 </ul>
 </nav>
