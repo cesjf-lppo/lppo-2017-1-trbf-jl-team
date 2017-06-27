@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,12 @@
                      <td>Descrição: </td>
                     <td>
                         <input type="text" name="descricao" />
+                    </td>
+                </tr>
+                <tr>
+                     <td>Data Prevista Conclusão: </td>
+                    <td>
+                        <input type="date" name="dataConcluir" />
                     </td>
                 </tr>
                 <tr>

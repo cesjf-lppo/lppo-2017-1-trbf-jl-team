@@ -18,6 +18,7 @@
                 <th>Descrição:</th>
                 <th>Data Prevista Conclusão: </th>
                 <th>Data de Conclusão:</th>
+                <th>Excluir</th>
             </tr>
             <c:forEach var="tarefa" items="${tarefas}">
                 <tr>
@@ -26,6 +27,7 @@
                     <td>${tarefa.descricao}</td>
                     <td>${tarefa.dataConcluir}</td>
                     <td>${tarefa.dataConclusao}</td>
+                    <td><a href="excluir-tarefa.html?id=${tarefa.id}"> X </a></td>
                 </tr>
             </c:forEach>
         </table>

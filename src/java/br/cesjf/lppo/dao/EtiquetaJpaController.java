@@ -115,6 +115,8 @@ public class EtiquetaJpaController implements Serializable {
     public List<Etiqueta> findEtiquetaEntities() {
         return findEtiquetaEntities(true, -1, -1);
     }
+    
+    
 
     public List<Etiqueta> findEtiquetaEntities(int maxResults, int firstResult) {
         return findEtiquetaEntities(false, maxResults, firstResult);
@@ -137,6 +139,15 @@ public class EtiquetaJpaController implements Serializable {
     }
 
     public Etiqueta findEtiqueta(Long id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Etiqueta.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
+    public Etiqueta findEtiquetaUsuario(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Etiqueta.class, id);

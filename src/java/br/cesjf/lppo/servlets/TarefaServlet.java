@@ -1,11 +1,15 @@
 package br.cesjf.lppo.servlets;
 
+import br.cesjf.lppo.Etiqueta;
 import br.cesjf.lppo.Tarefa;
 import br.cesjf.lppo.Usuario;
+import br.cesjf.lppo.dao.EtiquetaJpaController;
 import br.cesjf.lppo.dao.TarefaJpaController;
 import br.cesjf.lppo.dao.UsuarioJpaController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -56,15 +60,14 @@ public class TarefaServlet extends HttpServlet {
         
     }
 
-    private void doCriarGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try {    
-            request.getRequestDispatcher("WEB-INF/nova-tarefa.jsp").forward(request, response);
-        } catch (IOException ex) {
-            Logger.getLogger(TarefaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void doCriarGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException{        
+        request.getRequestDispatcher("WEB-INF/nova-tarefa.jsp").forward(request, response);
+        
     }
 
-    private void doListarGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void doListarGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
         List<Tarefa> tarefas;
         
         TarefaJpaController dao = new TarefaJpaController(ut, emf);
@@ -74,7 +77,8 @@ public class TarefaServlet extends HttpServlet {
         request.getRequestDispatcher("WEB-INF/listar-tarefa.jsp").forward(request, response);
     }
 
-    private void doEditarGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void doEditarGet(HttpServletRequest request, HttpServletResponse response) 
+             throws ServletException, IOException {
          try {
         TarefaJpaController dao = new TarefaJpaController(ut, emf);
         
@@ -87,14 +91,30 @@ public class TarefaServlet extends HttpServlet {
     }
     }
 
-    private void doExcluirGet(HttpServletRequest request, HttpServletResponse response) {
+    private void doExcluirGet(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException{
+                try {
+            TarefaJpaController dao = new TarefaJpaController(ut, emf);        
+            Long id = Long.parseLong(request.getParameter("id"));
+            dao.destroy(id);
+        } catch (Exception ex) {
+            response.sendRedirect("WEB-INF/erro.jsp");
+        }
+        response.sendRedirect("listar-tarefa.html");
     
-    }
+  }
 
-    private void doCriarPost(HttpServletRequest request, HttpServletResponse response) {
+    private void doCriarPost(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException {
         Tarefa tarefa = new Tarefa();
         tarefa.setTitulo(request.getParameter("titulo"));
         tarefa.setDescricao(request.getParameter("descricao"));
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            tarefa.setDataConcluir(format.parse(request.getParameter("dataConcluir")));
+        } catch (ParseException ex) {
+            Logger.getLogger(TarefaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         TarefaJpaController dao = new TarefaJpaController(ut,emf);
         
         try {
@@ -105,7 +125,8 @@ public class TarefaServlet extends HttpServlet {
         }
     }
 
-    private void doEditarPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void doEditarPost(HttpServletRequest request, HttpServletResponse response)
+             throws ServletException, IOException {
            try {
         TarefaJpaController dao = new TarefaJpaController(ut, emf);
         
@@ -113,6 +134,17 @@ public class TarefaServlet extends HttpServlet {
         Tarefa tarefa = dao.findTarefa(id);
         tarefa.setTitulo(request.getParameter("titulo"));
         tarefa.setDescricao(request.getParameter("descricao"));
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            tarefa.setDataConcluir(format.parse(request.getParameter("dataConcluir")));
+        } catch (ParseException ex) {
+            Logger.getLogger(TarefaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            tarefa.setDataConclusao(format.parse(request.getParameter("dataConclusao")));
+        } catch (ParseException ex) {
+            Logger.getLogger(TarefaServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dao.edit(tarefa);
         response.sendRedirect("listar-tarefa.html");       
     } catch (Exception e) {

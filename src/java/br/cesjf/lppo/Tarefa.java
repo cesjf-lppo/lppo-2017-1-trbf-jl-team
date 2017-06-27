@@ -14,7 +14,7 @@ public class Tarefa implements Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo, descricao;
-    private String dataConcluir, dataConclusao;
+    private Date dataConcluir, dataConclusao;
 
     public Tarefa() {
     }
@@ -43,19 +43,19 @@ public class Tarefa implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getDataConcluir() {
+    public Date getDataConcluir() {
         return dataConcluir;
     }
 
-    public void setDataConcluir(String dataConcluir) {
+    public void setDataConcluir(Date dataConcluir) {
         this.dataConcluir = dataConcluir;
     }
 
-    public String getDataConclusao() {
+  public Date getDataConclusao() {
         return dataConclusao;
     }
 
-    public void setDataConclusao(String dataConclusao) {
+    public void setDataConclusao(Date dataConclusao) {
         this.dataConclusao = dataConclusao;
     }
     

@@ -3,10 +3,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editar Usuario</title>
+        <title>Editar Tarefa</title>
     </head>
     <body>
-        
+        <%@include file = "jspf/menu.jspf" %>
         <h1>Editar Tarefa</h1>
         <form method="post">
             <table>
@@ -15,12 +15,20 @@
                     <td> <input type="hidden" name="id" value="${tarefa.id}"/>${tarefa.id}</td>
                 </tr>
                 <tr>
-                    <td>Nome: </td>
-                    <td><input type="text" name="nome" value="${tarefa.titulo}" /></td>
+                    <td>Titulo: </td>
+                    <td><input type="text" name="titulo" value="${tarefa.titulo}" /></td>
                 </tr>
                 <tr>
-                    <td>Email: </td>
-                    <td><input type="text" name="email" value="${tarefa.descricao}"/> </td>
+                    <td>Descrição: </td>
+                    <td><input type="text" name="descricao" value="${tarefa.descricao}"/> </td>
+                </tr>
+                <tr>
+                    <td>Data prevista concluir: </td>
+                    <td><input type="text" name="dataConcluir" value="${tarefa.dataConcluir}"/> </td>
+                </tr>
+                <tr>
+                    <td>Data de conclusão </td>
+                    <td><input type="text" name="dataConclusao" value="${tarefa.dataConclusao}"/> </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="right">
