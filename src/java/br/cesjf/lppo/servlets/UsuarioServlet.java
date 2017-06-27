@@ -129,5 +129,4 @@ public class UsuarioServlet extends HttpServlet {
         }
         response.sendRedirect("listar-usuario.html");
     }
-    
 }

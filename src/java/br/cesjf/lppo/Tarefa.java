@@ -50,8 +50,8 @@ public class Tarefa implements Serializable {
     public void setDataConcluir(Date dataConcluir) {
         this.dataConcluir = dataConcluir;
     }
-
-  public Date getDataConclusao() {
+    
+    public Date getDataConclusao() {
         return dataConclusao;
     }
 
