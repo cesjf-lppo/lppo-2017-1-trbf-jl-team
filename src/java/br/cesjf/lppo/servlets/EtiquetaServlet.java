@@ -87,19 +87,29 @@ public class EtiquetaServlet extends HttpServlet {
     }
 
     private void doCriarPost(HttpServletRequest request, HttpServletResponse response) 
-        throws ServletException, IOException {
+        throws ServletException, IOException {        
+        Etiqueta etiqueta = new Etiqueta();
+        etiqueta.setTitulo(request.getParameter("titulo"));
+        Long idUsuario = Long.parseLong(request.getParameter("idUsuario"));
+        Long idTarefa = Long.parseLong(request.getParameter("idTarefa"));
         
-        Etiqueta etiqueta1 = new Etiqueta();
-        etiqueta1.setTitulo(request.getParameter("titulo"));
-        etiqueta1.setIdAutor(Long.parseLong(request.getParameter("idUsuario")));
-        etiqueta1.setIdTarefa(Long.parseLong(request.getParameter("idTarefa")));
+        Usuario usuario = new Usuario();
+        UsuarioJpaController daoUsuario = new UsuarioJpaController(ut, emf);
+        usuario = daoUsuario.findUsuario(idUsuario);
+        
+        Tarefa tarefa = new Tarefa();
+        TarefaJpaController daoTarefa = new TarefaJpaController(ut, emf);
+        tarefa = daoTarefa.findTarefa(idTarefa);
+                
+        etiqueta.setUsuario(usuario);
+        etiqueta.setTarefa(tarefa);
         
         EtiquetaJpaController dao = new EtiquetaJpaController(ut, emf);
         try {
-            dao.create(etiqueta1);
+            dao.create(etiqueta);
             response.sendRedirect("listar-etiqueta.html");
         } catch (Exception ex) {
-            Logger.getLogger(EtiquetaServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("erro.html");
         }
         
     }
@@ -108,7 +118,15 @@ public class EtiquetaServlet extends HttpServlet {
         throws ServletException, IOException {
         List<Etiqueta> etiquetas;        
         EtiquetaJpaController dao = new EtiquetaJpaController(ut, emf);
-        etiquetas = dao.findEtiquetaEntities();
+        if (request.getParameter("idAutor")!=null) {
+            Long idAutor = Long.parseLong(request.getParameter("idAutor"));
+            etiquetas = dao.getEtiquetaByAutor(idAutor);
+        } else if (request.getParameter("titulo") != null) {
+            String titulo = request.getParameter("titulo");
+            etiquetas = dao.getEtiquetaByTitulo(titulo);
+        } else {
+            etiquetas = dao.findEtiquetaEntities();
+        }
         
         request.setAttribute("etiquetas", etiquetas);
         request.getRequestDispatcher("WEB-INF/listar-etiqueta.jsp").forward(request, response);

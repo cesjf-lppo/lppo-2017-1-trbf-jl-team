@@ -1,17 +1,27 @@
-<%-- 
-    Document   : erro
-    Created on : 23/06/2017, 20:53:48
-    Author     : luizs
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Houve um erro</title>
+        <title></title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="CSS/estilo.css" />
     </head>
     <body>
-        <h1>Ops... Algo deu errado!</h1>
+    <center>
+        <div id="pagina">
+            <div id="logotipo">
+                Trabalho Final LPPO
+            </div>
+            <div id="menus">
+                
+            </div>
+            <div id="conteudo">
+                HOUVE UM ERRO !
+            </div>
+            <div id="rodape">
+                Trabalho desenvolvido por: 
+                <a href="mailto:je_barbosaa@hotmail.com">Jéssica Barbosa</a> e 
+                <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a>
+            </div>
+        </div>
+    </center>        
     </body>
 </html>

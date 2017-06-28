@@ -1,44 +1,26 @@
-<!--
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<nav>
-<h2>Menu</h2>
 <ul>
-    <li><a href="criar-usuario.html"/> Novo Usuario </a></li>
-    <li><a href="listar-usuario.html"/> Lista Usuario</a></li>
-    <li><a href="criar-tarefa.html"/> Criar Tarefas</a></li>
-    <li><a href="listar-tarefa.html"/> Listar Tarefas</a></li>
-    <li><a href="criar-etiqueta.html"/> Criar Etiquetas </a></li>
-    <li><a href="listar-etiqueta.html"/> Listar Etiquetas </a></li>
+    <li><a href="listar-usuario.html">Usu·rios</a>
+        <ul>
+            <li><a href="criar-usuario.html">Criar</a></li>
+            <li><a href="listar-usuario.html">Listar</a></li>
+        </ul>
+    </li>
 </ul>
-</nav>
--->
 
-<div class="pd_menu_01" align="justify" width="600" height="800"> 
+<ul>
+    <li><a href="listar-tarefa.html">Tarefas:</a>
+        <ul>
+            <li><a href="criar-tarefa.html">Criar</a></li>
+            <li><a href="listar-tarefa.html">Listar</a></li>
+        </ul>
+    </li>
+</ul>
 
-    <ul><li><a href="winantigo.html">Usu√°rios</a>
-            <ul>
-                <li><a href="criar-usuario.html">Criar</a></li>
-                <li><a href="listar-usuario.html">Listar</a></li>
-                <li><a href="editar-usuario.html">Editar</a></li>
-            </ul>
-        </li></ul>
-
-    <ul><li><a href="winantigo.html">Tarefas:</a>
-            <ul>
-                <li><a href="criar-tarefa.html">Criar</a></li>
-                <li><a href="listar-tarefa.html">Listar</a></li>
-                <li><a href="editar-tarefa.html">Editar</a></li>
-            </ul>
-        </li></ul>
-
-
-    <ul><li><a href="winantigo.html">Etiquetas:</a>
-            <ul>
-                <li><a href="criar-etiqueta.html">Criar</a></li>
-                <li><a href="listar-etiqueta.html">Listar</a></li>
-                <li><a href="editar-etiqueta.html">Editar</a></li>
-            </ul>
-        </li></ul>
-
-</div>
+<ul>
+    <li><a href="listar-etiqueta.html">Etiquetas:</a>
+        <ul>
+            <li><a href="criar-etiqueta.html">Criar</a></li>
+            <li><a href="listar-etiqueta.html">Listar</a></li>
+        </ul>
+    </li>
+</ul>

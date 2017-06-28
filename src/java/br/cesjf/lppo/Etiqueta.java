@@ -5,19 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 @Entity
 public class Etiqueta implements Serializable{
-    
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idAutor; 
-    private Long idTarefa;
+    private Usuario usuario; 
+    private Tarefa tarefa;
     private String titulo;
-
-    public Etiqueta() {
-    }
 
     public Long getId() {
         return id;
@@ -27,20 +24,20 @@ public class Etiqueta implements Serializable{
         this.id = id;
     }
 
-    public Long getIdAutor() {
-        return idAutor;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdAutor(Long idAutor) {
-        this.idAutor = idAutor;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public Long getIdTarefa() {
-        return idTarefa;
+    public Tarefa getTarefa() {
+        return tarefa;
     }
 
-    public void setIdTarefa(Long idTarefa) {
-        this.idTarefa = idTarefa;
+    public void setTarefa(Tarefa tarefa) {
+        this.tarefa = tarefa;
     }
 
     public String getTitulo() {
@@ -50,5 +47,5 @@ public class Etiqueta implements Serializable{
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    
+
 }
