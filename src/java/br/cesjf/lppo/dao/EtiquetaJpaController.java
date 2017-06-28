@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.cesjf.lppo.dao;
 
 import br.cesjf.lppo.Etiqueta;
@@ -21,7 +17,7 @@ import javax.transaction.UserTransaction;
 
 /**
  *
- * @author Luiz Santos
+ * @author Luiz
  */
 public class EtiquetaJpaController implements Serializable {
 
@@ -116,8 +112,6 @@ public class EtiquetaJpaController implements Serializable {
     public List<Etiqueta> findEtiquetaEntities() {
         return findEtiquetaEntities(true, -1, -1);
     }
-    
-    
 
     public List<Etiqueta> findEtiquetaEntities(int maxResults, int firstResult) {
         return findEtiquetaEntities(false, maxResults, firstResult);
@@ -147,15 +141,6 @@ public class EtiquetaJpaController implements Serializable {
             em.close();
         }
     }
-    
-    public Etiqueta findEtiquetaUsuario(Long id) {
-        EntityManager em = getEntityManager();
-        try {
-            return em.find(Etiqueta.class, id);
-        } finally {
-            em.close();
-        }
-    }
 
     public int getEtiquetaCount() {
         EntityManager em = getEntityManager();
@@ -173,7 +158,7 @@ public class EtiquetaJpaController implements Serializable {
     public List<Etiqueta> getEtiquetaByAutor(Long id)  {
         EntityManager em = getEntityManager();       
         try {            
-            TypedQuery<Etiqueta> q = em.createQuery("SELECT e FROM Etiqueta e WHERE e.Usuario.id = :Long", Etiqueta.class);
+            TypedQuery<Etiqueta> q = em.createQuery("SELECT e FROM Etiqueta e WHERE e.usuario.id = :Long", Etiqueta.class);
             q.setParameter("Long", id);
             System.out.println(q.getResultList());            
             return q.getResultList();
