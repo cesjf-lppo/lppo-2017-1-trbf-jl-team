@@ -3,7 +3,7 @@
     <head>
         <title></title>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="CSS/estilo.css" type="text/css" />
+        <link rel="stylesheet" href="estilo.css" />
     </head>
     <body>
     <center>

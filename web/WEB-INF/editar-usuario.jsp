@@ -1,18 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%><html>
     <head>
         <title></title>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" type="text/css" href="CSS/estilo.css" />
+        <link rel="stylesheet" href="estilo.css" />
     </head>
     <body>
     <center>
         <div id="pagina">
             <div id="logotipo">
-                Trabalho Final LPPO
+                <%@include file = "jspf/logotipo.jspf" %>
             </div>
-            <div id="barramenu">
+            <div id="menus">
                 <%@include file = "jspf/menu.jspf" %>
             </div>
             <div id="conteudo">
@@ -33,7 +32,7 @@
                         </tr>
                         <tr>
                             <td>Senha: </td>
-                            <td><input type="text" name="senha" value="${usuario.senha}"/> ${usuario.senha}</td>
+                            <td><input type="password" name="senha" value="${usuario.senha}"/> ${usuario.senha}</td>
                         </tr>
                         <tr>
                             <td colspan="2" align="right">

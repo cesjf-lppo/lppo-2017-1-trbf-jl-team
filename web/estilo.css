@@ -1,6 +1,14 @@
+  
+html {
+    background: cadetblue;
+    margin: 0;
+    padding: 0;
+}
 
 #pagina {
-    width: 600px;
+    width: 800px;
+    height:100%;
+    background: white;
 }
 
 #rodape {
@@ -106,6 +114,18 @@ a {
 }
 
 #conteudo {
-    height: 100%;
+    height: 470px;
+    padding: 15px;
+    padding-top: 30px;
+    text-align: justify;
+    font-size: 10pt;
+    font-family: Arial;
 }
 
+#conteudo a {
+    color: seagreen;
+}
+
+#conteudo a:hover {
+    text-decoration: underline;
+}
