@@ -28,7 +28,7 @@
                     <c:forEach var = "usuario"  items = "${usuarios}">
                         <tr>
                             <td><a href="editar-usuario.html?id=${usuario.id}"> ${usuario.id}</a></td>
-                            <td><a href="kanban.html?id=${usuario.id}">${usuario.nome}</a></td>
+                            <td><a href="kanban.html?idUsuario=${usuario.id}">${usuario.nome}</a></td>
                             <td>${usuario.email}</td>
                             <td>${usuario.senha}</td>
                             <td><a href="excluir-usuario.html?id=${usuario.id}"> X </a></td>
