@@ -31,25 +31,38 @@ public class KanbanServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Long id = Long.parseLong(request.getParameter("idUsuario"));
-        
-        Usuario usuario = new Usuario();
+        List<Usuario> usuarios;
         UsuarioJpaController usuarioDao = new UsuarioJpaController(ut, emf);
-        usuario = usuarioDao.findUsuario(id);
+        usuarios = usuarioDao.findUsuarioEntities();
         
-        List<Etiqueta> etiquetas;
-        EtiquetaJpaController etiquetaDao = new EtiquetaJpaController(ut, emf);
-        etiquetas = etiquetaDao.getEtiquetaByAutor(id);
-        
-        request.setAttribute("usuario", usuario);
-        request.setAttribute("etiquetas", etiquetas);
-       request.getRequestDispatcher("WEB-INF/kanban.jsp").forward(request, response);
+        request.setAttribute("usuarios", usuarios);
+        request.getRequestDispatcher("WEB-INF/usuarios-kanban.jsp").forward(request, response);  
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        if (request.getParameter("idUsuario")!=null) {
+            Long id = Long.parseLong(request.getParameter("idUsuario"));
+
+            Usuario usuario = new Usuario();
+            UsuarioJpaController usuarioDao = new UsuarioJpaController(ut, emf);
+            usuario = usuarioDao.findUsuario(id);
+
+            List<Etiqueta> etiquetas;
+            EtiquetaJpaController etiquetaDao = new EtiquetaJpaController(ut, emf);
+            etiquetas = etiquetaDao.getEtiquetaByAutor(id);
+
+            request.setAttribute("usuario", usuario);
+            request.setAttribute("etiquetas", etiquetas);
+        } else {
+            List<Usuario> usuarios;
+            UsuarioJpaController usuarioDao = new UsuarioJpaController(ut, emf);
+            usuarios = usuarioDao.findUsuarioEntities();
+
+            request.setAttribute("listausuarios", usuarios);
+        }
+        request.getRequestDispatcher("WEB-INF/kanban.jsp").forward(request, response);        
     }
 
 }

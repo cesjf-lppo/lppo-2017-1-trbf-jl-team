@@ -19,5 +19,6 @@
                 <li><a href="criar-etiqueta.html">Criar Tarefa</a></li>
             </ul>
         </li>
+        <li><a href="kanban.html">Quadro Kanban</a></li>
     </ul>
 </div>
