@@ -1,0 +1,111 @@
+
+#pagina {
+    width: 600px;
+}
+
+#rodape {
+    font-size: small;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pd_menu_01 {
+    float:left; 
+    padding:0; 
+    margin:0;
+    background: burlywood; 
+    width:100%; 
+    clear:both; 
+    vertical-align:middle; 
+    text-align: center;
+}
+
+.pd_menu_01  a, .pd_menu_01 a:visited {
+    font-style:normal;
+    color: black;
+    font-weight:bold;
+    background-color: burlywood;
+    text-decoration: none;
+}
+.pd_menu_01 ul {
+    list-style-type:none;
+    padding:0; 
+    margin:0;
+}
+.pd_menu_01 ul li {
+    float:left;  
+    width:12em; 
+    position:relative; 
+    z-index:auto !important ; 
+    z-index:1000 ; 
+}
+.pd_menu_01 ul li a {
+    text-align: justify;
+    background: coral;
+    float:none !important ; 
+    float:left ; 
+    display:block; 
+    height:30px; 
+    line-height:30px; 
+    padding:0 10px 0 10px; 
+    text-decoration:none; 
+}
+.pd_menu_01 ul li ul {
+    display:none; 
+    border:none;
+    width:1px
+}
+.pd_menu_01 ul li:hover ul {
+    display:block; 
+    position:absolute; 
+    z-index:999; 
+    top:29px; 
+    margin-top:1px; 
+    left:0;
+}
+.pd_menu_01 ul li:hover ul li a {
+    display:block; 
+    width:12em; 
+    background: wheat;
+    font-style: italic;
+    height:auto; 
+    line-height:1.3em; 
+    margin-left:-1px; 
+    padding:5px 10px 5px 10px;
+}
+.pd_menu_01 ul li:hover ul li a:hover { 
+    text-decoration: underline;
+}
+.pd_menu_01 ul li a:hover {
+    text-decoration:none;
+}
+.pd_menu_01 ul li a:hover ul {
+    display:block; 
+    width:12em; 
+    position:absolute; 
+    z-index:999; 
+    top:29px; 
+    left:0; 
+}
+.pd_menu_01 ul li a:hover ul li a {
+    display:block; 
+    width:12em; 
+    height:1px; 
+    line-height:1.3em; 
+    padding:4px 16px 4px 16px; 
+} 
+.pd_menu_01 ul li a:hover ul li a:hover {
+    text-decoration:none;
+}
+
+#logotipo {
+    height: 80px;
+    font-size: 40pt;
+}
+
+#conteudo {
+    height: 100%;
+}
+

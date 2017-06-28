@@ -1,26 +1,23 @@
-<ul>
-    <li><a href="listar-usuario.html">Usuários</a>
-        <ul>
-            <li><a href="criar-usuario.html">Criar</a></li>
-            <li><a href="listar-usuario.html">Listar</a></li>
-        </ul>
-    </li>
-</ul>
 
-<ul>
-    <li><a href="listar-tarefa.html">Tarefas:</a>
-        <ul>
-            <li><a href="criar-tarefa.html">Criar</a></li>
-            <li><a href="listar-tarefa.html">Listar</a></li>
-        </ul>
-    </li>
-</ul>
-
-<ul>
-    <li><a href="listar-etiqueta.html">Etiquetas:</a>
-        <ul>
-            <li><a href="criar-etiqueta.html">Criar</a></li>
-            <li><a href="listar-etiqueta.html">Listar</a></li>
-        </ul>
-    </li>
-</ul>
+<div class="pd_menu_01"> 
+    <ul>
+        <li><a href="listar-usuario.html">Usuários</a>
+            <ul>
+                <li><a href="listar-usuario.html">Lista de Usuários</a></li>
+                <li><a href="criar-usuario.html">Criar Usuário</a></li>
+            </ul>
+        </li>
+        <li><a href="listar-tarefa.html">Tarefas</a>
+            <ul>
+                <li><a href="listar-tarefa.html">Lista de Tarefas</a></li>
+                <li><a href="criar-tarefa.html">Criar Tarefa</a></li>
+            </ul>
+        </li>
+        <li><a href="listar-etiqueta.html">Etiquetas</a>
+            <ul>
+                <li><a href="listar-etiqueta.html">Lista de Tarefas</a></li>
+                <li><a href="criar-etiqueta.html">Criar Tarefa</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
