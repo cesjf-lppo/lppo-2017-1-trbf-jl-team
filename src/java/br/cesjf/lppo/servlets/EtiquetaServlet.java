@@ -109,7 +109,7 @@ public class EtiquetaServlet extends HttpServlet {
             dao.create(etiqueta);
             response.sendRedirect("listar-etiqueta.html");
         } catch (Exception ex) {
-            response.sendRedirect("erro.html");
+            response.sendRedirect("WEB-INF/erro.jsp");
         }
         
     }
@@ -157,8 +157,10 @@ public class EtiquetaServlet extends HttpServlet {
             response.sendRedirect("listar-etiqueta.html");
         } catch (RollbackFailureException ex) {
             Logger.getLogger(EtiquetaServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("WEB-INF/erro.jsp");
         } catch (Exception ex) {
             Logger.getLogger(EtiquetaServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("WEB-INF/erro.jsp");
         }
     }
 
@@ -173,7 +175,4 @@ public class EtiquetaServlet extends HttpServlet {
         }
         response.sendRedirect("listar-etiqueta.html");
     }
-
-    
-
 }

@@ -41,7 +41,12 @@
                         <tr>
                             <td>Titulo: </td>
                             <td>
-                                <input type="text" name="titulo" />
+                                <select name="titulo">
+                                    <option value="A Fazer">A Fazer</option>
+                                    <option value="Fazendo">Fazendo</option>
+                                    <option value="Bloqueado">Bloqueado</option>
+                                    <option value="Finalizado">Finalizado</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>

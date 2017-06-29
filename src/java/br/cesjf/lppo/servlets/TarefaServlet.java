@@ -80,15 +80,15 @@ public class TarefaServlet extends HttpServlet {
     private void doEditarGet(HttpServletRequest request, HttpServletResponse response) 
              throws ServletException, IOException {
          try {
-        TarefaJpaController dao = new TarefaJpaController(ut, emf);
-        
-        Long id = Long.parseLong(request.getParameter("id"));
-        Tarefa tarefa = dao.findTarefa(id);
-        request.setAttribute("tarefa", tarefa);
-        request.getRequestDispatcher("WEB-INF/editar-tarefa.jsp").forward(request, response);
-    } catch (Exception e) {
-        response.sendRedirect("WEB-INF/erro.jsp");
-    }
+            TarefaJpaController dao = new TarefaJpaController(ut, emf);
+
+            Long id = Long.parseLong(request.getParameter("id"));
+            Tarefa tarefa = dao.findTarefa(id);
+            request.setAttribute("tarefa", tarefa);
+            request.getRequestDispatcher("WEB-INF/editar-tarefa.jsp").forward(request, response);
+        } catch (Exception e) {
+            response.sendRedirect("WEB-INF/erro.jsp");
+        }
     }
 
     private void doExcluirGet(HttpServletRequest request, HttpServletResponse response) 
@@ -101,8 +101,7 @@ public class TarefaServlet extends HttpServlet {
             response.sendRedirect("WEB-INF/erro.jsp");
         }
         response.sendRedirect("listar-tarefa.html");
-    
-  }
+    }
 
     private void doCriarPost(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
@@ -122,6 +121,7 @@ public class TarefaServlet extends HttpServlet {
             response.sendRedirect("listar-tarefa.html");
         } catch (Exception ex) {
             Logger.getLogger(TarefaServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("WEB-INF/erro.jsp");
         }
     }
 

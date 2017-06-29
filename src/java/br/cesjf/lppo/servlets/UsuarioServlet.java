@@ -70,6 +70,7 @@ public class UsuarioServlet extends HttpServlet {
             response.sendRedirect("listar-usuario.html");
         } catch (Exception ex) {
             Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("WEB-INF/erro.jsp");
         }
         
     }

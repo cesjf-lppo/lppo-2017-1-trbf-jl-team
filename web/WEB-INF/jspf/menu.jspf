@@ -15,8 +15,8 @@
         </li>
         <li><a href="listar-etiqueta.html">Etiquetas</a>
             <ul>
-                <li><a href="listar-etiqueta.html">Lista de Tarefas</a></li>
-                <li><a href="criar-etiqueta.html">Criar Tarefa</a></li>
+                <li><a href="listar-etiqueta.html">Lista de Etiquetas</a></li>
+                <li><a href="criar-etiqueta.html">Criar Etiqueta</a></li>
             </ul>
         </li>
         <li><a href="kanban.html">Quadro Kanban</a></li>
